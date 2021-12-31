@@ -10,6 +10,8 @@ const DB = process.env.DATABASE.replace(
   process.env.DATABASE_PASSWORD
 );
 
+// const DB = process.env.DATABASE_LOCAL;
+
 mongoose
   .connect(DB, {
     useNewUrlParser: true,
@@ -46,6 +48,7 @@ app.use((req, res, next) => {
 
 app.use('/api/v1/tours', tourRouter);
 app.use('/api/v1/users', userRouter);
+
 //server
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
